@@ -1,5 +1,5 @@
 # COFFEE SURVEY ANALYSIS (Work IN PROGRESS: this project is still being developed and improved)
-## **Being programmer and coffee lover** like many other programmers are Coffee Lovers, I choose this project to combine **my passion for coding** with exploring coffee consumption habits through data analysis, while demonstrating data cleaning, transformation and exploratory data analysis skills using **Pyhton, Pandas, MatPlotLib and regex**
+## **Being programmer and coffee lover** like many other programmers, I choose this project to combine **my passion for coding** with exploring coffee consumption habits through data analysis, while demonstrating data cleaning, transformation and exploratory data analysis skills using **Pyhton, Pandas, MatPlotLib and regex**
 
 **Original CVS source:** public major coffee survey from James Hoffmann, "Great American Taste Test"
 **Type:**  56 questions answered by 4,042 participants, survey data with mixed data types, multi-value, categorical, ranges-based purposes ...
