@@ -211,6 +211,7 @@ def clean_ranges_columns_minmax(df, columns):
 def create_csv(df,filename):
     rel_path = 'data/processed/'
     file_path = ROOT_DIR / rel_path / filename
+    file_path.parent.mkdir(parents = True, exist_ok=True)
     df.to_csv(file_path, index=False, na_rep="")
 
 #conteo por grupo de valores pasando una columna
