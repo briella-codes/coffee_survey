@@ -1,9 +1,8 @@
 # COFFEE SURVEY ANALYSIS (Work IN PROGRESS: this project is still being developed and improved)
-This project analyzes an international coffee consumption survey using **Pyhton, Pandas and MatPlotLib**
-The goal is to **demostrate data cleaning, transformation and exploratory data analysis**
+## **Being programmer and coffee lover** like many other programmers are Coffee Lovers, I choose this project to combine **my passion for coding** with exploring coffee consumption habits through data analysis, while demonstrating data cleaning, transformation and exploratory data analysis skills using **Pyhton, Pandas, MatPlotLib and regex**
 
-Original CVS source: public major coffee survey from James Hoffmann, "Great American Taste Test"
-Type:  56 questions answered by 4,042 participants, survey data with mixed data types, multi-value, categorical, ranges-based purposes ...
+**Original CVS source:** public major coffee survey from James Hoffmann, "Great American Taste Test"
+**Type:**  56 questions answered by 4,042 participants, survey data with mixed data types, multi-value, categorical, ranges-based purposes ...
 Dataset used for educational purposes.
 
 ## HOW TO RUN THE PROJECT
@@ -15,20 +14,20 @@ Click here to open in GoogleColab: <br>
 
 ## DATA PROCESSING
 - Standardization of diferents types of values  <br>
-- Cleaning and normalization of range-based responses (age, cups, spending...)  <br>
+- Cleaning and **normalization** of *range-based responses* (age, cups, spending...)  <br>
 - Use of **Regular Expressions (regex)** for extracting and cleaning text-based data
 - **Detecting and handling of missing or null values**
 - Correction of data types
 - Normalization and scaling of numeric values
-- Creating of new features / columns for clusteringor further analysis (min/max columns, etc)   <br>
+- Creating of **new features / columns for clusteringor further analysis** (min/max columns, etc)   <br>
 - Exporting cleaned and processed dataset as new CSV file
 
 ## ANALYSIS HIGHTLIGHTS
 - Percentage of coffee consumers by age group  <br>
 -  Number of consumers grouped and counted by additives(sugar, milk, syrup, etc) and by age group  <br>
 - Sweetener usage by age group (and by educational level)  <br>
-- Hight-consumption consumer profiles  <br>
-- Spending behavior  <br>
+- Hight-consumption consumer profiles *(in progress)*  <br>
+- Spending behavior  *(in progress)* <br>
 
 ## TOOLS:
 - Python  <br>
