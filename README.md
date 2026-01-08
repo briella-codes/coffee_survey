@@ -6,6 +6,7 @@
 Dataset used for educational purposes.
 
 ## HOW TO RUN THE PROJECT
+in directory src/: core Python logic (data cleaning, analysis, functions)
 GoogleColab: Open the notebook and run all the cells <br>
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/briella-codes/coffee_survey/blob/main/notebooks/survey_analysis.ipynb)  <br>
 Click here to open in GoogleColab: <br>
