@@ -242,3 +242,55 @@ def color_intercalado(cat_barra:list, col1="#C400D2", col2="#7700FF") ->list[str
     for x in range(len(cat_barra)):
         color+=[col1] if x%2==0 else [col2]
     return color
+
+def graphic_chart_fav_coffee_by_age(fav_coffee_by_age):
+    age_groups = fav_coffee_by_age.index
+
+    for grupo in age_groups:
+        fav_count = fav_coffee_by_age.loc[grupo]
+
+        fig, ax = plt.subplots(figsize=(8,4))
+
+        bars = ax.bar(
+            fav_count.index,
+            fav_count.values,
+            color=color_intercalado(list(fav_count.index))
+        )
+
+        ax.set_title("Fav Coffees for consumers aged: " + grupo, fontsize=18)
+        ax.set_ylabel('Number of consumers', fontsize=12)
+        #hide x axis
+        ax.set_xticks([])
+
+        for bar, label in zip(bars, fav_count.index):
+            x_center = bar.get_x() + bar.get_width() / 2
+            ax.text(
+                x_center,
+                0.04,                           
+                label,
+                ha='center',
+                va='bottom',               
+                rotation=90,
+                fontsize=9,
+                color='black',
+                transform=ax.get_xaxis_transform(),
+                clip_on=False
+            )
+
+        for bar in bars:
+            x_center = bar.get_x() + bar.get_width() / 2
+            ax.text(
+                x_center,
+                -0.04,                           
+                f'{int(bar.get_height())}',
+                ha='center',
+                va='top',                   
+                fontsize=9,
+                transform=ax.get_xaxis_transform(),
+                clip_on=False
+            )
+
+        plt.subplots_adjust(bottom=0.3)
+        ax.set_ylim(0, fav_count.values.max() * 1.15)
+
+        plt.show()
