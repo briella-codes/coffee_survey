@@ -1,6 +1,7 @@
 import pandas as pd
 from IPython.display import display,HTML
 from pathlib import Path
+import html
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 #print(ROOT_DIR)
@@ -33,13 +34,16 @@ def create_csv(df,filename):
 # but output ( titles, text, dataframes...) will still be displayed with default styling
 
 h1_color = "#6c37f4"
-h2_color = "#8a00cf"
+h2_color = "#00abb7"
 p_color = "#979797"
+obs_color = "#982df0"
+obs_border = "#12ffdf"
+obs_backgr_color = "#242424"
 
 def print_title(t):
     display(HTML(f"""
                     <style>                        
-                        h1 {{color:{h1_color}; font-family:Arial; font-size: 40px; font-weight:normal;margin-top: 26px; margin-bottom: 12px;}}
+                        h1 {{color:{h1_color}; font-family:Arial; font-size: 40px; font-weight:bold; margin-top: 26px; margin-bottom: 12px;}}
                     </style>
                     <h1> {t} </h1>
                 """))
@@ -62,6 +66,30 @@ def print_text(text):
                     <p>{text}</p>
                 """))
 
+
+def print_observation(text):
+    
+    safe_text = html.escape(text)
+    display(HTML(f"""
+                    <style>
+                        .obs-box{{ border-top: 4px solid {obs_color};
+                                    border-bottom: 8px solid {obs_border};
+                                    border-right: none;
+                                    border-left: none;
+                                    background-color: {obs_backgr_color};}}
+                        
+                        p.obs {{    color:{obs_color};
+                                    font-family:Arial;
+                                    font-size: 18px;
+                                    font-weight:bold;
+                                    padding: 12px;
+                                    }}
+                    </style>
+                    <div class="obs-box">
+                        <p class="obs"> {safe_text} </p>
+                    </div>
+
+                 """))
 
 
 # "fix" the problem that one element's tuples have a final commas... -just for aesthetic display. it doesnt change the dataframe value/format
