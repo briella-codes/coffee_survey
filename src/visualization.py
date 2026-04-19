@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.express as px
 from matplotlib.colors import LinearSegmentedColormap
+from src.analysis import group_and_count
 
 #COLOR PALETTES FOR CHARTS
 PIE_PALETTE=["#d053d9","#B454DA","#ae63ff","#853cc4","#6c37f4","#3758de", "#0084FF", "#27B0FF","#00E9D9" ,"#00FFBB","#49E678","#72F45E","#AAE84D"]  
@@ -126,4 +128,65 @@ def grouped_bar_chart_fav_coffee_by_age(ax,fav_coffee_by_age_T):
 
     ax.set_title("Favorite Coffee by Age Group", fontsize=18, fontweight='bold')
     ax.legend(title="Age Groups", loc='upper center',frameon=False)
+    return ax
+
+
+def graphic_multilevel_pie_chart(df, columns_list, values,title="", color=PIE_PALETTE):
+    fig = px.sunburst(df,path=columns_list, values=values,color_discrete_sequence=color)
+    fig.update_layout(
+        #width=800,
+        #height=800,
+        margin=dict(l=0, r=0, t=60, b=26),
+        title={
+        'text': title,
+        'y': 0.95, 
+        'x': 0.5, 
+        #'xanchor': 'center',
+        #'yanchor': 'top',
+        'font': dict(
+            size=24,
+            color="black"
+            )
+        }
+    )
+    fig.update_traces(texttemplate='%{label}<br>%{percentRoot:.1%}',textfont_size=16)
+    return fig
+
+
+def graphic_heatmap(ax,df, col1, col2,title="",percentage=False,colors=HM_FIRE):
+    heatmap_data = group_and_count(df,col1,col2)
+    simb=""
+    df_pivot = heatmap_data.unstack()
+    df_pivot = df_pivot.fillna(0).astype(int)
+    if percentage==True:
+        total_rows =df_pivot.sum(axis=1)
+        df_pivot = df_pivot.div(total_rows,axis=0)*100
+        simb="%"
+    
+    color_cmap = LinearSegmentedColormap.from_list("hm_gradient", colors)
+
+    im = ax.imshow(df_pivot.values, aspect=1, cmap=color_cmap)
+    ax.set_xticks(range(len(df_pivot.columns)))
+    ax.set_xticklabels(df_pivot.columns.tolist(), rotation=45, ha='right', fontsize=10)
+    ax.set_yticks(range(len(df_pivot.index)))
+    ax.set_yticklabels(df_pivot.index.tolist(), fontsize=10)
+
+    for i in range(len(df_pivot.index)):
+        for j in range(len(df_pivot.columns)):
+            #valor = int(df_pivot.values[i, j])
+            valor = df_pivot.values[i, j]
+            color_texto = "grey" if valor < df_pivot.values.max() / 2 else "white"
+            if percentage==True:
+                texto= f"{valor:.1f}%"
+            else:
+                texto=int(valor)
+            fw="regular" if valor < df_pivot.values.max() / 2 else "bold"
+            ax.text(j, i, texto, ha='center', va='center', 
+                    fontsize=12, color=color_texto, fontweight=fw)
+
+    plt.colorbar(im, ax=ax, label=simb+' Consumers').ax.yaxis.label.set_size(12)
+  
+    ax.set_ylabel(col1, fontsize=12, labelpad=10)
+    ax.set_xlabel(col2, fontsize=12, labelpad=10)
+    ax.set_title(title, fontsize=16, pad=15, fontweight='bold')
     return ax

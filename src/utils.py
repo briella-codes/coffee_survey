@@ -43,6 +43,16 @@ def save_pickle(df, filename):
     except PermissionError:
         print(f"Error :The file {filename} couldn't be saved")
 
+#FUNCTIONS FOR EXPORTING CHARTS AS FIGURES (IMAGES):
+
+def save_plot(fig,output_file ):
+    rel_path = 'figures/'
+    file_path = ROOT_DIR / rel_path / output_file
+    file_path.parent.mkdir(parents = True, exist_ok=True)
+
+    fig.savefig(file_path)
+    return file_path
+
 
 #=========================================================================================
 #PRINT/DISPLAY - CUSTOMIZED        

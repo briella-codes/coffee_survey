@@ -1,3 +1,6 @@
 matplotlib
 numpy
 pandas
+plotly
+nbformat
+matplotlib_venn
