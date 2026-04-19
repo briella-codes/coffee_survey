@@ -26,6 +26,23 @@ def create_csv(df,filename):
         print(f"The file {filename} is opened by another app, close it and try again")
 
 
+#READ AND SAVE PICKLE FUNCSTIONS:
+
+def load_pickle(rel_path):
+    file_path = ROOT_DIR / rel_path
+    pickle_file = pd.read_pickle(file_path)
+    return pickle_file
+
+
+def save_pickle(df, filename):
+    rel_path = 'data/pickles/'
+    file_path = ROOT_DIR / rel_path / filename
+    file_path.parent.mkdir(parents = True, exist_ok=True)
+    try:
+        df.to_pickle(file_path)
+    except PermissionError:
+        print(f"Error :The file {filename} couldn't be saved")
+
 
 #=========================================================================================
 #PRINT/DISPLAY - CUSTOMIZED        
