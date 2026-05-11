@@ -1,4 +1,4 @@
-<img src="../assets/coffee_banner.jpg" align="left" width="30%" hspace="20">
+<img src="./assets/coffee_banner.jpg" align="left" width="30%" hspace="20">
 
 # COFFEE SURVEY ANALYSIS (Work IN PROGRESS: this project is still being developed and improved)
 **Being programmer and coffee lover** like many other programmers, I choose this project to combine **my passion for coding** with exploring coffee consumption habits through data analysis, while demonstrating data cleaning, transformation and exploratory data analysis skills using **Pyhton programming, Pandas, MatPlotLib and regex**
@@ -8,9 +8,9 @@
 
 ## HOW TO RUN THE PROJECT
 ### RUN ONLINE:
-GoogleColab: Just open the notebook and run all the cells. Click the button below to run the project: <br>
+GoogleColab: Just open the notebook and run all the cells.<br>Click the button below to run the project: <br>
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/briella-codes/coffee_survey/blob/main/notebooks/survey_analysis_english.ipynb) 
-in directory src/: core Python logic (data cleaning, analysis, functions)
+<br> in directory src/: core Python logic (data cleaning, analysis, functions)
 
 ### RUN LOCAL:
 ## INSTALLATION AND EXECUTION
