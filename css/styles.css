@@ -1,0 +1,223 @@
+/* BASE */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+/* background */
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    background-image: url('../assets/bg_coffee_chocolate.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    filter: brightness(0.72);
+}
+
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem 4rem;
+    gap: 2rem;
+}
+
+/* header */
+.site-header {
+    text-align: center;
+    max-width: 700px;
+}
+
+.site-title {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+
+
+.site-subtitle1 {
+    font-family: Verdana, Geneva, sans-serif;
+    margin-top: 0.6rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+}
+.site-subtitle2 {
+    font-family: Verdana, Geneva, sans-serif;
+    margin-top: 0.6rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 300;
+    color: rgb(255, 227, 84);
+    letter-spacing: 0.04em;
+}
+/***********************************************/
+
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 960px;
+    align-items: stretch;
+}
+
+
+.cards-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    height: 100%;
+}
+
+/* cards */
+.project-card {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.035);
+    background: rgba(255, 255, 255, 0.244);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+
+.card-title {
+    font-family: Verdana, Geneva, sans-serif;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e8e8e8;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+    line-height: 1.35;
+}
+
+.project-card:hover .card-title {
+  color: #c087fa;
+}
+
+.card-title:focus-visible {
+  outline: 2px solid #7EB8F7;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+/* preview pic */
+.preview-col {
+    /* position: sticky; */
+    position: static;
+    top: 2rem;
+    height: 100%;
+}
+
+.preview-frame {
+    /*background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15); */
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-frame img {
+    width: auto;
+    /* height: 320px;*/
+    height: 420px;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.4s ease;
+}
+
+.preview-hint {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    padding: 0.6rem 0;
+    text-align: center;
+}
+
+/* responsive: tablet or mobile  */
+@media (max-width: 720px) {
+    .page-wrapper {
+        padding: 2rem 1rem 3rem;
+        gap: 2rem;
+  }
+
+    .main-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+  }
+
+    .bg {
+        background-position: center center;
+    }
+
+    .preview-col {
+        position: static;
+        order: 2;
+    }
+
+    .cards-col {
+        order: 1;
+    }
+
+    .preview-frame img {
+        height: 220px;
+    }
+
+    .project-card:hover {
+        transform: scale(1.02);
+    }
+    }
+
+    @media (max-width: 380px) {
+    .site-title {
+        font-size: 1.7rem;
+    }
+
+    .preview-frame img {
+        height: 180px;
+    }
+    }

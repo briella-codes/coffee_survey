@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COFFEE SURVEY DATA ANALYSIS</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+
+  <div class="bg"></div>
+
+
+  <div class="page-wrapper">
+
+    <header class="site-header">
+      <h1 class="site-title">COFFEE SURVEY DATA ANALYSIS</h1>
+      <p class="site-subtitle1"></p>- using Python programming, Pandas, regex and Matplotlib - </p>
+      <p class="site-subtitle2">Click the section you'd like to explore to open its notebook link</p>
+    </header>
+
+    <main class="main-layout">
+
+      <div class="cards-col">
+
+        <a
+          class="project-card"
+          data-previews="./assets/eda.png,assets/code.png"
+          onmouseenter="showPreview(this)"
+          onmouseleave="resetPreview()"
+          href="https://colab.research.google.com/github/briella-codes/coffee_survey/blob/main/notebooks/survey_analysis_english.ipynb" target="_blank" rel="noopener"
+        >
+          <span class="card-title">
+            EXPLORATORY DATA <br> ANALYSIS <span style="color: #00E5FF;">➔</span>
+          </span>
+          <p class="card-desc">
+            enviroment setup - data cleaning -
+            initial data exploration -
+            missing values analysis -
+            EDA - visualizations 🔗
+          </p>
+        </a>
+
+        <a
+          class="project-card"
+          data-previews="./assets/profiles.png,assets/profiles2.png"
+          onmouseenter="showPreview(this)"
+          onmouseleave="resetPreview()"
+          href="https://colab.research.google.com/github/briella-codes/coffee_survey/blob/main/notebooks/coffee_consumer_profiles_english.ipynb" target="_blank" rel="noopener"
+        >
+          <span class="card-title" >
+            CONSUMER PROFILES DETECTION <span style="color: #00E5FF;">➔</span>
+          </span>
+          <p class="card-desc">
+            segmentation based on habits, consumption,
+            spending behaviour, taste preferences - profile analysis and visualizations 🔗
+          </p>
+        </a>
+
+        <a
+          class="project-card"
+          data-previews="assets/coffee_banner.jpg,assets/powerbi.png"
+          onmouseenter="showPreview(this)"
+          onmouseleave="resetPreview()"
+          href="#"
+        >
+          <span class="card-title" >
+            POWER BI
+          </span>
+          <p class="card-desc">
+            Comming Soon.
+            (in progress)
+          </p>
+        </a>
+
+      </div>
+
+      <div class="preview-col">
+        <div class="preview-frame">
+          <img
+            id="preview-img"
+            src=""
+          />
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    const DEFAULT_SRC = "";
+    const previewImg = document.getElementById("preview-img");
+    let intervalId = null;
+
+    function showPreview(card) {
+    const srcs = card.dataset.previews.split(",");
+    let index = 0;
+
+    
+    previewImg.style.opacity = "0";
+    setTimeout(() => {
+        previewImg.src = srcs[0];
+        previewImg.style.opacity = "1";
+    }, 150);
+
+    intervalId = setInterval(() => {
+        index = (index + 1) % srcs.length;
+        previewImg.style.opacity = "0";
+        setTimeout(() => {
+        previewImg.src = srcs[index];
+        previewImg.style.opacity = "1";
+        }, 150);
+    }, 1400);
+    }
+
+    function resetPreview() {
+    clearInterval(intervalId); 
+    intervalId = null;
+    previewImg.style.opacity = "0";
+    setTimeout(() => {
+        previewImg.src = DEFAULT_SRC;
+        previewImg.style.opacity = "1";
+    }, 150);
+    }
+  </script>
+
+</body>
+</html>
